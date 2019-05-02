@@ -7,8 +7,8 @@
 import pymongo
 
 
-class BgSpiderPipeline(object):
-    collection_name = 'product_items'
+class MongoPipeline(object):
+    collection_name = ''
 
     def __init__(self, mongo_uri, mongo_db):
         self.mongo_uri = mongo_uri
@@ -29,5 +29,7 @@ class BgSpiderPipeline(object):
         self.client.close()
 
     def process_item(self, item, spider):
+        self.collection_name = item['post_type'] + '_items'
+        self.db[self.collection_name].create_index([('post_title', 1)], unique=True)
         self.db[self.collection_name].insert_one(dict(item))
         return item
