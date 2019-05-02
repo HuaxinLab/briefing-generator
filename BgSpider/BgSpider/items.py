@@ -9,6 +9,8 @@ import scrapy
 
 
 class BgspiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    post_abstract = scrapy.Field()
+    post_date = scrapy.Field()
+    post_type = scrapy.Field()
+    post_title = scrapy.Field()
+    post_url = scrapy.Field()
