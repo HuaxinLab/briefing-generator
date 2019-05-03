@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ static_url("semantic.min.css") }}">
+        <title>briefing generator</title>
+    </head>
+    <body>
+        <h3>{{ headline }} | {{ post_date }}</h3>
+        <p>
+            <strong>「{{ post_type }}」</strong>
+            <ul>
+            {% for post in postList %}
+                <li>
+                    <a href="{{post['post_url']}}" target="_black">{{ post['post_title']}}</a><br/>
+                    <span>{{ post['post_abstract']}}</span><br/>
+                    <span>{{ post['post_url']}}</span>
+                </li>
+            {% end %}
+            </ul>
+        </p>
+    </body>
+</html>
