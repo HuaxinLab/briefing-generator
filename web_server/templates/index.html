@@ -4,18 +4,34 @@
         <link rel="stylesheet" href="{{ static_url("semantic.min.css") }}">
         <title>briefing generator</title>
     </head>
-    <body>
-        <h1>简报生成器</h1>
-        <form method="post" action="/result">
-            <p>标题：<input type="text" name="headline" value='早报'></p>
-            <p>类型：
-                <input type="checkbox" value="product" 
-                       name="post_type" checked>产品
-                <input type="checkbox" value="miniapp" 
-                       name="post_type">小程序</p>
-            <p>时间：<input type="date" id = 'datePicker' name="post_date"></p>
-            <input type="submit" value="生成">
+    <body class="ui segment padded">
+        <h2 class="ui header">简报生成器</h2>
+        <div class="ui segment padded">
+            <form class="ui form" method="post" action="/result">
+                <div class="inline field">
+                    <label>标题：</label>
+                    <div class="ui input">
+                        <input type="text" placeholder='简报' name="headline">
+                    </div>
+                </div>
+                <div class="inline field">
+                    <label>时间：</label>
+                    <div class="ui input">
+                        <input type="date" id = 'datePicker' name="post_date"></p>
+                    </div>
+                </div>
+                <div class="inline field">
+                    <label>时间：</label>
+                    <input type="checkbox" value="product" name="post_type" checked>
+                    <label>产品</label>
+                    <input type="checkbox" value="miniapp" name="post_type">
+                    <label>小程序</label>
+                </div>
+                <input class="ui blue button" type="submit" value="生成">
+            </form>
+
         </form>
+        </div>
         <script>
             yesterday = new Date(new Date().setDate(new Date().getDate()-1))
             document.getElementById('datePicker').valueAsDate = yesterday

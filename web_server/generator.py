@@ -16,6 +16,8 @@ class IndexHandler(tornado.web.RequestHandler):
         self.render('index.html')
 
 class ResultHandler(tornado.web.RequestHandler):
+    typeMap = {'product': '产品', 'miniapp': '小程序'}
+
     def fetch_data(self, post_type, post_date):
         client = MongoClient()
         database = client['BgSpider']
@@ -33,7 +35,7 @@ class ResultHandler(tornado.web.RequestHandler):
         post_date = self.get_argument('post_date')
         postList = self.fetch_data(post_type, post_date)
         self.render('result.html', headline=headline, post_date=post_date, 
-            post_type=post_type, postList=postList)
+            post_type=self.typeMap[post_type], postList=postList)
 
 if __name__ == '__main__':
     tornado.options.parse_command_line()

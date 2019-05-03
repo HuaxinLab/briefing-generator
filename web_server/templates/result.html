@@ -4,19 +4,20 @@
         <link rel="stylesheet" href="{{ static_url("semantic.min.css") }}">
         <title>briefing generator</title>
     </head>
-    <body>
-        <h3>{{ headline }} | {{ post_date }}</h3>
-        <p>
-            <strong>「{{ post_type }}」</strong>
-            <ul>
-            {% for post in postList %}
-                <li>
-                    <a href="{{post['post_url']}}" target="_black">{{ post['post_title']}}</a><br/>
+    <body class="ui segment padded">
+        <h2 class="ui header">{{ headline }} | {{ post_date }}</h2>
+        <div class="ui segment blue padded">
+            <strong>▍{{ post_type }}</strong>
+            {% if postList.count() == 0 %}
+                <p class="ui list">========暂无数据========</p>
+            {% end %}
+            {% for index,post in enumerate(postList) %}
+                <div class="ui list">
+                    {{ index+1 }}.&nbsp<a href="{{post['post_url']}}" target="_black">{{ post['post_title']}}</a><br/>
                     <span>{{ post['post_abstract']}}</span><br/>
                     <span>{{ post['post_url']}}</span>
-                </li>
+                </div>
             {% end %}
-            </ul>
-        </p>
+        </div>
     </body>
 </html>
