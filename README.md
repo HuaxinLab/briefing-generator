@@ -1,6 +1,6 @@
 
 <p align="center">
-<a href="http://bg.huaxinlab.cn/" target=_blank>
+<a href="http://bg.huaxinlab.cn/">
     <img src="images/icon.png" 
     alt="Logo" width="128" height="128" style="max-width: 100%;">
 </a>
@@ -8,16 +8,16 @@
 <h1 align="center">Briefing Generator</h1>
 <p align="center">简报生成器: 一个生成简报的工具</p>
 <p align="center">
-    <a href="https://acusp.info" target=_blank>
+    <a href="https://acusp.info">
         <img src="https://badgen.net/badge/author/acusp/blue" alt="author">
     </a>
-    <a href="https://github.com/scrapy/scrapy" target=_blank>
+    <a href="https://github.com/scrapy/scrapy">
         <img src="https://badgen.net/badge/Scrapy/1.6.0/blue" alt="scrapy">
     </a>
-    <a href="https://github.com/tornadoweb/tornado" target=_blank>
+    <a href="https://github.com/tornadoweb/tornado">
         <img src="https://badgen.net/badge/Tornado/6.0.2/blue" alt="tornado">
     </a>
-    <a href="http://bg.huaxinlab.cn/" target=_blank>
+    <a href="http://bg.huaxinlab.cn/">
         <img src="https://badgen.net/badge/%F0%9F%9A%80/open-in-browser/blue" alt="Live Demo">
     </a>
     <a href="LICENSE">
@@ -67,7 +67,7 @@
 - [ ] 订阅简报（定时发送每日简报）
 
 
-## 部署
+## 部署(Ubuntu)
 
 **克隆项目**
 
@@ -104,9 +104,15 @@ mongod
 **运行爬虫**
 
 ```
-cd BgSpider
-scrapy crawl prudoct_next
-scrapy crawl miniapp
+crontab -e
+
+# 设置爬虫运行的时间
+* */8 * * *  ~/briefing-generator/BgSpider/cron_task.sh
+
+# 打开 crontab 日志(可选)
+vim /etc/rsyslog.d/50-default.conf 
+
+cron.*                         /var/log/cron.log
 ```
 
 > TODO: 定时运行脚本
