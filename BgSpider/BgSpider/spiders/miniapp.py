@@ -6,8 +6,9 @@ from BgSpider.items import BgspiderItem
 
 class MiniappSpider(scrapy.Spider):
     name = 'miniapp'
-    # allowed_domains = ['minapp.com/miniapp']
-    day = (date.today() + timedelta(days = 0)).strftime("%Y-%m-%d") 
+    offset = 0
+
+    day = (date.today() + timedelta(days = offset)).strftime("%Y-%m-%d") 
     base_url = 'https://minapp.com'
     start_urls = ['https://minapp.com/miniapp/']
 
