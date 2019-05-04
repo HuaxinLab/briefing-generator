@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="{{ static_url("semantic.min.css") }}">
         <title>briefing generator</title>
+        <link rel="stylesheet" href="{{ static_url('style.css')}}">
+        <link rel="stylesheet" href="{{ static_url('semantic.min.css')}}">
     </head>
-    <body class="ui segment padded">
+    <body>
+    <div class="ui segment padded">
         <h2 class="ui header">简报生成器</h2>
         <div class="ui segment padded">
             <form class="ui form" method="post" action="/result">
                 <div class="inline field">
                     <label>标题：</label>
                     <div class="ui input">
-                        <input type="text" placeholder='简报' name="headline">
+                        <input type="text" placeholder='请输入简报标题' name="headline">
                     </div>
                 </div>
                 <div class="inline field">
@@ -21,7 +23,7 @@
                     </div>
                 </div>
                 <div class="inline field">
-                    <label>时间：</label>
+                    <label>类型：</label>
                     <input type="checkbox" value="product" name="post_type" checked>
                     <label>产品</label>
                     <input type="checkbox" value="miniapp" name="post_type">
@@ -32,9 +34,10 @@
 
         </form>
         </div>
-        <script>
-            yesterday = new Date(new Date().setDate(new Date().getDate()-1))
-            document.getElementById('datePicker').valueAsDate = yesterday
-        </script>
+    </div>
+    <script>
+        yesterday = new Date(new Date().setDate(new Date().getDate()-1))
+        document.getElementById('datePicker').valueAsDate = yesterday
+    </script>
     </body>
 </html>

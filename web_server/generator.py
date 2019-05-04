@@ -31,11 +31,17 @@ class ResultHandler(tornado.web.RequestHandler):
 
     def post(self):
         headline = self.get_argument('headline')
-        post_type = self.get_argument('post_type')
+        post_type = self.get_arguments('post_type')
         post_date = self.get_argument('post_date')
-        postList = self.fetch_data(post_type, post_date)
+        postList = []
+        post_type_zh = []
+
+        for i in range(len(post_type)):
+            postList.append(self.fetch_data(post_type[i], post_date))
+            post_type_zh.append(self.typeMap[post_type[i]])
+
         self.render('result.html', headline=headline, post_date=post_date, 
-            post_type=self.typeMap[post_type], postList=postList)
+            post_type=post_type_zh, postList=postList)
 
 if __name__ == '__main__':
     tornado.options.parse_command_line()
