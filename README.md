@@ -7,14 +7,23 @@
 <p align="center">简报生成器: 一个生成简报的工具</p>
 <p align="center">
     <a href="https://acusp.info">
-        <img src="https://badgen.net/badge/author/acusp/f2a" alt="Author">
+        <img src="https://badgen.net/badge/author/acusp/blue" alt="author">
+    </a>
+    <a href="https://github.com/scrapy/scrapy">
+        <img src="https://badgen.net/badge/Scrapy/1.6.0/blue" alt="scrapy">
+    </a>
+    <a href="https://github.com/tornadoweb/tornado">
+        <img src="https://badgen.net/badge/Tornado/6.0.2/blue" alt="tornado">
     </a>
     <a href="#">
-        <img src="https://img.shields.io/badge/%F0%9F%9A%80-open--in--browser-e10079.svg" alt="Live Demo">
+        <img src="https://badgen.net/badge/%F0%9F%9A%80/open-in-browser/blue" alt="Live Demo">
+    </a>
+    <a href="LICENSE">
+        <img src="https://badgen.net/github/license/HuaxinLab/briefing-generator" alt="MIT">
     </a>
 </p>
 
-### 介绍
+## 介绍
 
 一个自动生成简报的工具，可自动抓取并分类整理信息，最终按天提供简报内容。
 
@@ -25,7 +34,7 @@
 如果你对这个产品感兴趣，可以查看这个产品的设计历程系列文章：[《一个项目带你走进产品经理的世界》](http://www.woshipm.com/pmd/2182811.html)
 
 
-### 功能列表
+## 功能列表
 
 **支持的信息源**
 
@@ -54,3 +63,6 @@
 - [ ] 简报历史
 
 - [ ] 订阅简报（定时发送每日简报）
+
+
+## 部署
