@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>briefing generator</title>
+        <link rel="shortcut icon" type="image/png" 
+            href="{{static_url('images/favicon.png')}}"/>
+        <link rel="stylesheet" href="{{ static_url('style.css')}}">
+        <link rel="stylesheet" href="{{ static_url('semantic.min.css')}}">
+    </head>
+    <body>
+    <div  class="ui segment padded">
+        <h2 class="ui header">{{ headline }} | {{ post_date }}</h2>
+        <div class="ui segment padded">
+        {% for i,list in enumerate(postList) %}
+            <strong>▍{{ post_type[i] }}</strong>
+            {% if list.count() == 0 %}
+                <p class="ui list">========暂无数据========</p>
+            {% end %}
+            {% for index,post in enumerate(list) %}
+                <div class="ui list">
+                    {{ index+1 }}.&nbsp<a href="{{post['post_url']}}" target="_black">{{ post['post_title']}}</a><br/>
+                    <span>{{ post['post_abstract']}}</span><br/>
+                    <span>{{ post['post_url']}}</span>
+                </div>
+            {% end %}
+        {% end %}
+        </div>
+    </div>
+    </body>
+</html>
