@@ -69,9 +69,12 @@
 
 ## 部署(Ubuntu)
 
+> TODO: 自动脚本
+
 **克隆项目**
 
 ```
+cd ~
 git clone https://github.com/HuaxinLab/briefing-generator.git
 ```
 
@@ -104,6 +107,9 @@ mongod
 **运行爬虫**
 
 ```
+mkdir ~/log
+chomd +x ~/briefing-generator/BgSpider/cron_task.sh
+
 crontab -e
 
 # 设置爬虫运行的时间
@@ -114,8 +120,6 @@ vim /etc/rsyslog.d/50-default.conf
 
 cron.*                         /var/log/cron.log
 ```
-
-> TODO: 定时运行脚本
 
 **运行web server**
 

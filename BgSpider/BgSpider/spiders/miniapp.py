@@ -7,7 +7,7 @@ from BgSpider.items import BgspiderItem
 class MiniappSpider(scrapy.Spider):
     name = 'miniapp'
     # allowed_domains = ['minapp.com/miniapp']
-    yesterday = (date.today() + timedelta(days = -1)).strftime("%Y-%m-%d") 
+    day = (date.today() + timedelta(days = 0)).strftime("%Y-%m-%d") 
     base_url = 'https://minapp.com'
     start_urls = ['https://minapp.com/miniapp/']
 
@@ -20,7 +20,7 @@ class MiniappSpider(scrapy.Spider):
                 item['post_date'] = self.dateFormat(app.css('time::text').get())
                 item['post_title'] = app.css('h2::text').get()
                 item['post_url'] = self.base_url + app.css('a::attr(href)').get()
-                if self.yesterday == item['post_date']:
+                if self.day == item['post_date']:
                     yield item
 
     def dateFormat(self, date_str):
