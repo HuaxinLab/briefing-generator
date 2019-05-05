@@ -70,6 +70,8 @@
 
 > TODO: 自动脚本
 
+<details>
+
 **克隆项目**
 
 ```
@@ -128,3 +130,5 @@ python3 generator.py
 ```
 
 脚步执行成功后，浏览器访问 http://localhost:8001 即可使用。
+
+</details>
