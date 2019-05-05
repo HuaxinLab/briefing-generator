@@ -62,8 +62,6 @@
 
 - [ ] 选择简报样式
 
-- [ ] 简报历史
-
 - [ ] 订阅简报（定时发送每日简报）
 
 
@@ -112,8 +110,8 @@ chomd +x ~/briefing-generator/BgSpider/cron_task.sh
 
 crontab -e
 
-# 设置爬虫运行的时间
-* */8 * * *  ~/briefing-generator/BgSpider/cron_task.sh
+# 设置爬虫执行的时间: 下面表示每隔 4 小时运行一次
+* */4 * * *  ~/briefing-generator/cron_task.sh
 
 # 打开 crontab 日志(可选)
 vim /etc/rsyslog.d/50-default.conf 
