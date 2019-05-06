@@ -37,8 +37,8 @@
         </div>
     </div>
     <script>
-        // yesterday = new Date(new Date().setDate(new Date().getDate()-1))
-        document.getElementById('datePicker').valueAsDate = new Date();
+        day = new Date(new Date().setDate(new Date().getDate()-1))
+        document.getElementById('datePicker').valueAsDate = day;
     </script>
     </body>
 </html>
