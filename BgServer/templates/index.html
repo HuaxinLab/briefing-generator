@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>briefing generator</title>
-        <link rel="shortcut icon" href="{{static_url('images/favicon.ico')}}">
-        <link rel="stylesheet" href="{{static_url('style.css')}}">
-        <link rel="stylesheet" href="{{static_url('semantic.min.css')}}">
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139711766-2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-139711766-2');
-        </script>
-    </head>
-    <body>
+{% extends "base.html" %}
+{% block body %}
     <div class="ui segment padded">
         <h2 class="ui header">简报生成器</h2>
         <div class="ui segment padded">
@@ -49,5 +33,4 @@
         day = new Date(new Date().setDate(new Date().getDate()-1))
         document.getElementById('datePicker').valueAsDate = day;
     </script>
-    </body>
-</html>
+{% end %}

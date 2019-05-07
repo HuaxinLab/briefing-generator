@@ -11,10 +11,6 @@ import tornado.web
 from tornado.options import define, options
 define("port", default=8001, help="run on the given port", type=int)
 
-class IndexHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render('index.html')
-    
 class BaseHandler(tornado.web.RequestHandler):
     def get(self):
         self.write_error(404)
@@ -26,6 +22,10 @@ class BaseHandler(tornado.web.RequestHandler):
         else:
             self.write("Gosh darnit, user! You caused a %d error." % status_code)
 
+class IndexHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render('index.html')
+    
 class ResultHandler(tornado.web.RequestHandler):
     typeMap = {'product': '产品', 'miniapp': '小程序'}
 
@@ -54,6 +54,10 @@ class ResultHandler(tornado.web.RequestHandler):
         self.render('result.html', headline=headline, post_date=post_date, 
             post_type=post_type_zh, postList=postList)
 
+class HelloModule(tornado.web.UIModule):
+    def render(self):
+        return ""
+
 if __name__ == '__main__':
     tornado.options.parse_command_line()
     app = tornado.web.Application(
@@ -62,6 +66,7 @@ if __name__ == '__main__':
             (r'/result', ResultHandler),
             (r".*", BaseHandler)
         ],
+        ui_modules={'Hello': HelloModule},
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
         static_path=os.path.join(os.path.dirname(__file__), "static"),
         debug=True
