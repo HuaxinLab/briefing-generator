@@ -1,36 +1,51 @@
 {% extends "base.html" %}
 {% block body %}
-    <div class="ui segment padded">
-        <h2 class="ui header">简报生成器</h2>
-        <div class="ui segment padded">
-            <form class="ui form" method="post" action="/result">
-                <div class="inline field">
-                    <label>标题：</label>
-                    <div class="ui input">
-                        <input type="text" placeholder='请输入简报标题' name="headline">
-                    </div>
-                </div>
-                <div class="inline field">
-                    <label>时间：</label>
-                    <div class="ui input">
-                        <input type="date" id = 'datePicker' name="post_date"></p>
-                    </div>
-                </div>
-                <div class="inline field">
-                    <label>类型：</label>
-                    <input type="checkbox" value="product" name="post_type" checked>
-                    <label>产品</label>
-                    <input type="checkbox" value="miniapp" name="post_type">
-                    <label>小程序</label>
-                </div>
-                <input class="ui blue button" type="submit" value="生成">
-            </form>
-
+    <div id="setting">
+        <strong>设置</strong>
+        <hr/>
+        <form method="get">
+            <div>
+                <label>标题：</label>
+                <input type="text" placeholder="请输入简报标题" name="headline">
+            </div>
+            <div>
+                <label>时间：</label>
+                <input type="date" id = "datePicker" name="post_date"></p>
+            </div>
+            <div>
+                <label>类型：</label>
+                <input type="checkbox" value="product" name="post_type" checked>
+                <label>产品</label>
+                <input type="checkbox" value="miniapp" name="post_type" checked>
+                <label>小程序</label>
+            </div>
+            <input type="submit" value="生成" class="button"/>
         </form>
-        </div>
     </div>
+
+    <div id="briefing">
+        <strong>{{headline}}</strong>
+        <hr/>
+
+        {% for i,posts in enumerate(postList) %}
+            {% if i == 0 %}
+                <input class="active" type="button" value="{{ post_type[i] }}"/>
+            {% else %}
+                <input type="button" value="{{ post_type[i] }}"/>
+            {% end %}
+        {% end %}
+
+        {% for i,posts in enumerate(postList) %}
+            {% if i == 0 %}
+                <div style="display:block;" class="posts">{% module Posts(posts)%}</div>
+            {% else %}
+                <div class="posts">{% module Posts(posts)%}</div>
+            {% end %}
+        {% end %}
+    </div>
+
     <script>
-        day = new Date(new Date().setDate(new Date().getDate()-1))
+        day = new Date(new Date().setDate(new Date().getDate()))
         document.getElementById('datePicker').valueAsDate = day;
     </script>
 {% end %}

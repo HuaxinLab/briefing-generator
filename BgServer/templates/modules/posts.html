@@ -1,0 +1,9 @@
+{% if posts.count() == 0 %}
+    <div class="post"><span>========暂无数据========</span></div>
+{% end %}
+{% for index,post in enumerate(posts) %}
+    <div class="post">
+        {{ index+1 }}.&nbsp<a href="{{post['post_url']}}" target="_black">{{ post['post_title']}}</a><br/>
+        <span>{{ post['post_abstract']}}</span><br/>
+    </div>
+{% end %}

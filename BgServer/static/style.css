@@ -1,3 +1,93 @@
-body>div {
-    min-height: 100vh;
+/* global */
+html,body {
+    margin: 0 0;
+    padding: 0 0;
+    background: #f0f3f5;
+    box-sizing: border-box;
+}
+
+a {
+    color: #2593fc;
+}
+
+strong {
+    size: 1rem;
+}
+  
+/* header */
+header h2{
+    background-color: #232323;
+    margin: 0 0;
+    text-indent: 5%;
+    height: 4rem;
+}
+  
+header a {
+    color: #FFF;
+    text-decoration:none;
+}
+
+/* footer */
+footer {
+    color: #808080;
+    margin-top: 2%;
+    margin-bottom: 1.5%;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #808080;
+}
+  
+footer a:hover {
+    color: #000;
+    text-decoration:underline;
+}
+
+/* content */
+#setting, #briefing {
+    margin: 1% 5%;
+    padding: 2%;
+    background-color: #fff;
+}
+
+#setting .button {
+    background-color: #2593fc;
+    color: #fff;
+    margin: 2% 0 0 1%;
+    font-size: 0.8em;
+    border-radius: 5px;
+    outline: none;
+}
+
+#briefing .posts {
+    display: none;
+    font-size: 0.8rem;
+    padding: 0 8rem;
+}
+
+#briefing input {
+    font-size: 1rem;
+    border: none;
+    border-right: 2px solid #ddd;
+    display: block;
+    width: 6rem;
+    padding: 1rem 0;
+    outline: none;
+}
+
+#briefing .active {
+    color: #2593fc;
+    border-right: 2px solid #2593fc;
+}
+
+.post {
+    position: relative;
+    top: -6.5rem;
+}
+
+.post span {
+    display: block;
+    padding: 0.4rem 0 0;
 }
