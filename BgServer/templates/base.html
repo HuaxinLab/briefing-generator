@@ -18,15 +18,15 @@
     <script src="{{static_url('main.js')}}"></script>
 </head>
 <body>
-    <header>
+    <div id="header">
         <h2><a href="/">简报生成器</a></h2>
-    </header>
+    </div>
     <div id="content">
         {% block body %}{% end %}
     </div>
-    <footer>
+    <div id="footer">
         Copyright &copy; 2019 HuaxinLab. <a href="https://acusp.info" target="_blank">Acusp</a>  
         and <a href="https://qmisky.github.io" target="_blank">Misky</a> Product
-    </footer>
+    </div>
 </body>
 </html>

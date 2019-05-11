@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import os.path
 from pymongo import MongoClient
-from datetime import date
+from datetime import datetime, date, timedelta
 
 import tornado.httpserver
 import tornado.ioloop
@@ -11,7 +11,7 @@ import tornado.web
 
 from tornado.options import define, options
 define("port", default=8001, help="run on the given port", type=int)
-today = date.today().strftime("%Y-%m-%d")
+day = (date.today() + timedelta(days = -1)).strftime("%Y-%m-%d") 
 all_type = ["product", "miniapp"]
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -40,12 +40,12 @@ class IndexHandler(tornado.web.RequestHandler):
         return postList
 
     def get(self):
-        headline = self.get_argument("headline", "今日简报")
+        headline = self.get_argument("headline", "昨日简报")
         if self.get_arguments("post_type"):
             post_type = self.get_arguments("post_type")
         else:
             post_type = all_type
-        post_date = self.get_argument("post_date", today)
+        post_date = self.get_argument("post_date", day)
         postList = []
         post_type_zh = []
 
