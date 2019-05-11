@@ -22,11 +22,12 @@ hr {
   
 
 /* header */
-#header h2{
+#header{
     background-color: #232323;
     margin: 0 0;
     text-indent: 5%;
-    line-height: 4rem;
+    line-height: 4.375rem;
+    font-size: 1.25rem;
 }
   
 #header a {
@@ -105,6 +106,10 @@ form div {
     font-size: 0.875rem;
     border-radius: 5px;
     outline: none;
+}
+
+#setting input[type=checkbox] {
+    margin: 0;
 }
 
 #briefing .posts {
