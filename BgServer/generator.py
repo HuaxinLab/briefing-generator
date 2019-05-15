@@ -11,7 +11,6 @@ import tornado.web
 
 from tornado.options import define, options
 define("port", default=8001, help="run on the given port", type=int)
-day = (date.today() + timedelta(days = -1)).strftime("%Y-%m-%d") 
 all_type = ["product", "miniapp"]
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -40,6 +39,7 @@ class IndexHandler(tornado.web.RequestHandler):
         return postList
 
     def get(self):
+        day = (date.today() + timedelta(days = -1)).strftime("%Y-%m-%d")
         headline = self.get_argument("headline", "昨日简报")
         if self.get_arguments("post_type"):
             post_type = self.get_arguments("post_type")
